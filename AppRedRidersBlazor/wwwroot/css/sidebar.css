@@ -1,0 +1,72 @@
+.container-sidebar{
+    display: flex;
+    height:100%
+}
+
+/* Container do menu lateral */
+#sidebar-restaurant {
+  width: 240px;                         
+  background: #ede7f6;        
+  border-right: 1px solid #d1c4e9;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 1s ease-in-out;
+  height: 100%;
+}
+
+#sidebar-restaurant.open{
+    display: flex;
+}
+/* Título do menu */
+.sidebar-title {
+  color: #6a1b9a;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Links do menu */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-nav a {
+  color: #6a1b9a;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover */
+.sidebar-nav a:hover {
+  background: #d1c4e9;
+  color: #4a148c;
+}
+
+/* Ativo */
+.sidebar-nav a.active {
+  background: #b39ddb;
+  color: #fff;
+  font-weight: bold;
+}
+
+.container-sidebar button{
+    align-self: start;
+    margin: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor:pointer
+}
+
+.img-sidebar{
+    background-color:#4b4bb7;
+    border-radius: 5px;
+}
+

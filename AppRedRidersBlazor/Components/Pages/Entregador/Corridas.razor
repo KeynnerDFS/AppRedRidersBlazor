@@ -1,0 +1,68 @@
+﻿@page "/Corridas"
+
+<PageTitle>Corridas</PageTitle>
+
+<main id="container-entregador">
+    <div id="sidebar-entregador"></div>
+    <!-- Outlet -->
+    <div id="corridas" class="tab-content" style="display: flex">
+
+        
+
+        <h2>Corridas</h2>
+
+        
+
+
+        <p id="texto">Aqui estão as entregas solicitadas pelos restaurantes:</p>
+
+        <ul class="corrida-lista">
+            <li>
+                <h3>Pedido #101</h3>
+                <p><strong>Restaurante:</strong> Pizzaria Saborosa</p>
+                <p><strong>Retirada:</strong> Rua das Flores, 123</p>
+                <p><strong>Entrega:</strong> Av. Brasil, 500</p>
+                <p><strong>Distância:</strong> 2km</p>
+                <button class="btn aceitar">Aceitar Corrida</button>
+            </li>
+            <li>
+                <h3>Pedido #102</h3>
+                <p><strong>Restaurante:</strong> Sushi Express</p>
+                <p><strong>Retirada:</strong> Rua Japão, 456</p>
+                <p><strong>Entrega:</strong> Rua Central, 900</p>
+                <p><strong>Distância:</strong> 2km</p>
+                <button class="btn aceitar">Aceitar Corrida</button>
+            </li>
+            <li>
+                <h3>Pedido #103</h3>
+                <p><strong>Restaurante:</strong> Burguer King</p>
+                <p><strong>Retirada:</strong> Av. Paulista, 200</p>
+                <p><strong>Entrega:</strong> Rua Verde, 45</p>
+                <p><strong>Distância:</strong> 2km</p>
+                <button class="btn aceitar">Aceitar Corrida</button>
+            </li>
+        </ul>
+    </div>
+    <section class="corrida-ativa">
+        <h2>Corrida em Andamento</h2>
+
+        <div class="corrida-card ativa">
+            <h3>Pedido #4512</h3>
+            <p><strong>Restaurante:</strong> Burguer House</p>
+            <p><strong>Endereço de Retirada:</strong> Rua das Flores, 120</p>
+            <p><strong>Cliente:</strong> Pedro Lima</p>
+            <p><strong>Endereço de Entrega:</strong> Av. Brasil, 890</p>
+            <p><strong>Distância:</strong> 2km</p>
+            <p><strong>Status:</strong> Em andamento 🚴‍♂️</p>
+
+            <div class="corrida-acao">
+                <button class="btn cancelar">Cancelar Corrida</button>
+                <button class="btn finalizar">Finalizar Entrega</button>
+            </div>
+        </div>
+    </section>
+   
+</main>
+
+
+

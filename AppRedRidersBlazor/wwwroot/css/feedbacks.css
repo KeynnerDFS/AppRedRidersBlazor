@@ -1,0 +1,85 @@
+/* Container geral */
+#container-feedbacks {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+#titulo-feedbacks {
+  color: #4b4bb7;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Lista de feedbacks */
+#lista-feedbacks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+/* Card individual de feedback */
+.card-feedback {
+  background-color: #f5f5f5;
+  border: 2px solid #4b4bb7;
+  border-radius: 10px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.card-feedback:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Informações do feedback */
+.info-feedback h3 {
+  margin: 0 0 5px;
+  color: #4b4bb7;
+}
+
+.info-feedback p {
+  margin: 5px 0;
+  color: #333;
+}
+
+/* Ações do feedback */
+.acoes-feedback {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.acoes-feedback .btn-deletar {
+  background-color: #e74c3c;
+  color: white;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.acoes-feedback .btn-deletar:hover {
+  background-color: #c0392b;
+}
+
+/* Mensagem caso não haja feedbacks */
+#nenhum-feedback {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}

@@ -1,0 +1,65 @@
+body{
+    background-color: rgba(0, 0, 0, 0.502);
+}
+
+#main-perfil {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 30px;
+  width: 100%;
+}
+
+#controller-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#perfil-container {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+#foto-perfil-container {
+  width: 150px;
+  height: 150px;
+}
+
+#foto-perfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #4b4bb7;
+}
+
+
+#editar-perfil-container {
+  width: 100%;
+  text-align: end;
+  align-self: start;
+}
+
+#btn-editar-perfil {
+  background: #4b4bb7;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btn-editar-perfil:hover {
+  background: #3a3a95;
+}

@@ -1,0 +1,56 @@
+﻿@page "/TabelaCardapio"
+
+<PageTitle>Tabela Cardápio</PageTitle>
+
+@* <a id="btn-add-veiculo" href="CadastrarCliente">Novo Cliente</a> *@
+
+<main>
+    <div class="container-restaurante">
+        <div id="sidebar-entregador"></div>
+        <div class="container-main-restaurante">
+            <!-- outlet -->
+            <section id="lista-corridas">
+                <h2>Todos os Pratos</h2>
+
+                <a id="btn-add-veiculo" href="CadastrarPrato">Novo Prato</a>
+                <br />
+                <br />
+
+                <table id="tabela-historico">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Descrição</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pizza GG</td>
+                            <td>R$ 100,00</td>
+                            <td>Até 4 sabores</td>
+                            <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
+                            <td><a id="btn-add-veiculo"> Excluir </a></td>
+                        </tr>
+                        <tr>
+                            <td>Pizza G</td>
+                            <td>R$ 80,00</td>
+                            <td>Até 3 sabores</td>
+                            <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
+                            <td><a id="btn-add-veiculo"> Excluir </a></td>
+                        </tr>
+                        <tr>
+                            <td>Lasanha 500g</td>
+                            <td>R$ 45,00</td>
+                            <td>1 sabor (frango ou carne)</td>
+                            <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
+                            <td><a id="btn-add-veiculo"> Excluir </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</main>

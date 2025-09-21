@@ -1,0 +1,77 @@
+﻿@page "/GerenciarCardapios"
+@attribute [StreamRendering]
+
+<PageTitle>Gerenciar Cardápios</PageTitle>
+
+
+<main>
+    <div class="container-restaurante">
+        <div id="sidebar"></div>
+        <div class="container-main-restaurante">
+            <!-- outlet -->
+            <div id="container-cardapios">
+                <h2 id="titulo-cardapios">Gerenciar Cardápios</h2>
+
+                <ul id="lista-cardapios">
+                    <!-- Cardápio 1 -->
+                    <li class="card-cardapio">
+                        <img src="https://i.pinimg.com/736x/db/ce/1f/dbce1f6e5070ed091a94dee1d889537d.jpg"
+                             alt="Cardápio Italiano"
+                             class="img-cardapio" />
+                        <div class="info-cardapio">
+                            <h3>Cardápio Italiano</h3>
+                            <p>Massas, pizzas, risotos e sobremesas típicas da Itália.</p>
+                        </div>
+                        <div class="acoes-cardapio">
+                            <button class="btn-deletar">Deletar</button>
+                            <a id="btn-add-veiculo" href="TabelaCardapio">Editar</a>
+                        </div>
+                    </li>
+
+                   @*  <!-- Cardápio 2 -->
+                    <li class="card-cardapio">
+                        <img src="https://i.pinimg.com/736x/9e/ed/23/9eed2356a1d7cc36ff77e160869b09d7.jpg"
+                             alt="Cardápio Japonês"
+                             class="img-cardapio" />
+                        <div class="info-cardapio">
+                            <h3>Cardápio Japonês</h3>
+                            <p>
+                                Sushis, sashimis, tempurás e pratos tradicionais do Japão.
+                            </p>
+                        </div>
+                        <div class="acoes-cardapio">
+                            <button class="btn-deletar">Deletar</button>
+                            <button class="btn-editar">Editar</button>
+                        </div>
+                    </li>
+
+                    <!-- Cardápio 3 -->
+                    <li class="card-cardapio">
+                        <img src="https://i.pinimg.com/1200x/7f/04/c6/7f04c681bbb84877653cf3ee4ac48cdd.jpg"
+                             alt="Cardápio Brasileiro"
+                             class="img-cardapio" />
+                        <div class="info-cardapio">
+                            <h3>Cardápio Brasileiro</h3>
+                            <p>
+                                Feijoada, churrasco, moqueca e pratos regionais do Brasil.
+                            </p>
+                        </div>
+                        <div class="acoes-cardapio">
+                            <button class="btn-deletar">Deletar</button>
+                            <button class="btn-editar">Editar</button>
+                        </div>
+                    </li> *@
+                </ul>
+
+                <!-- Caso não tenha nenhum cardápio -->
+                <!-- <p id="nenhum-cardapio">Nenhum cardápio cadastrado.</p> -->
+            </div>
+            <br /><br />
+            <a id="btn-add-veiculo" href="CadastrarCardapio">Novo Cardápio</a>
+            <br /><br />
+        </div>
+    </div>
+</main>
+
+
+

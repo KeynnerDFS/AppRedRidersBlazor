@@ -1,0 +1,97 @@
+/* Container principal */
+#container-pedidos {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título */
+#titulo-pedidos {
+  color: #4b4bb7;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+/* Lista de pedidos */
+#lista-pedidos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+/* Card individual */
+.card-pedido {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card-pedido:hover {
+  transform: scale(1.02);
+}
+
+/* Informações do pedido */
+.info-pedido {
+  padding: 15px;
+}
+
+.info-pedido h3 {
+  margin: 0 0 10px;
+  color: #4b4bb7;
+  font-size: 20px;
+}
+
+.info-pedido p {
+  margin: 6px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+/* Destaque para status */
+.info-pedido p:last-child {
+  font-weight: bold;
+  color: #4b4bb7;
+}
+
+/* Botões de ação */
+.acoes-pedido {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  background-color: #f0f0f8;
+}
+
+.btn-deletar,
+.btn-editar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-deletar {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-deletar:hover {
+  background-color: #c0392b;
+}
+
+.btn-editar {
+  background-color: #4b4bb7;
+  color: white;
+}
+
+.btn-editar:hover {
+  background-color: #3a3aa0;
+}

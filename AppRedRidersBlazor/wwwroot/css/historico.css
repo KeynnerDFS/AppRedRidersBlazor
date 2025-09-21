@@ -1,0 +1,47 @@
+
+#lista-corridas{
+    margin: 20px;
+}
+
+#lista-corridas h2 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+#tabela-historico {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#tabela-historico th, 
+#tabela-historico td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+#tabela-historico th {
+  background: #41345e;
+  color: white;
+}
+
+#tabela-historico tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+#tabela-historico tr:hover {
+  background: #f1f1f1;
+}
+
+/* Status */
+.status.finalizada {
+  color: green;
+  font-weight: bold;
+}
+
+.status.cancelada {
+  color: red;
+  font-weight: bold;
+}

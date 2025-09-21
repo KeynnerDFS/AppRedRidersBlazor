@@ -1,0 +1,7 @@
+.container-restaurante {
+    display: flex;
+}
+.container-main-restaurante {
+    flex: 1;
+    min-height: 100vh;
+}

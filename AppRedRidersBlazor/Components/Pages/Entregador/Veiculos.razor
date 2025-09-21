@@ -1,0 +1,45 @@
+﻿@page "/Veiculos"
+
+<PageTitle>Veiculos</PageTitle>
+
+<main id="container-entregador">
+    <div id="sidebar-entregador"></div>
+    <!-- Outlet -->
+    <section id="veiculos-section">
+        <!-- Botão para cadastrar novo veículo -->
+        <div id="novo-veiculo-container">
+            <a id="btn-add-veiculo" href="CadastrarVeiculo">Cadastrar Novo Veículo</a>
+        </div>
+
+        <!-- Lista de veículos -->
+        <section id="lista-veiculos">
+            <h2>Meus Veículos</h2>
+
+            <!-- Card de veículo -->
+            <div class="veiculo-card" id="veiculo-1">
+                <img src="https://i.pinimg.com/736x/89/19/b2/8919b2209dec4b0aae923fe4894b3f69.jpg"
+                     alt="Foto do veículo"
+                     class="veiculo-foto" />
+                <div class="veiculo-info">
+                    <p><strong>Dono:</strong> João Silva</p>
+                    <p><strong>CPF:</strong> 123.456.789-00</p>
+                    <p><strong>CNH:</strong> 987654321</p>
+                    <p><strong>Placa:</strong> ABC-1234</p>
+                </div>
+            </div>
+
+            <div class="veiculo-card" id="veiculo-2">
+                <img src="https://i.pinimg.com/736x/ee/bb/5f/eebb5fdafeae1ad1f3037b2af49c45b9.jpg"
+                     alt="Foto do veículo"
+                     class="veiculo-foto" />
+                <div class="veiculo-info">
+                    <p><strong>Dono:</strong> Maria Souza</p>
+                    <p><strong>CPF:</strong> 987.654.321-00</p>
+                    <p><strong>CNH:</strong> 123456789</p>
+                    <p><strong>Placa:</strong> XYZ-9876</p>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+

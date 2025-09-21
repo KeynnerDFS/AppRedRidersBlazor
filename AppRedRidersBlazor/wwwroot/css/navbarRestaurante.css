@@ -1,0 +1,32 @@
+.navigation-bar-restaurant {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  gap: 2rem;
+  margin: 20px auto;
+}
+
+.navigation-bar-restaurant a {
+  color: black;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  position: relative;
+}
+
+.navigation-bar-restaurant a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: blueviolet;
+  transition: width .4s ease-in-out;
+}
+
+.navigation-bar-restaurant a.active::after {
+  width: 100%;
+}
+

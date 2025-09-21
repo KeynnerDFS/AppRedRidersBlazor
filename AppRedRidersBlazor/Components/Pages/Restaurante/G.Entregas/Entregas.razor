@@ -1,0 +1,64 @@
+﻿@page "/Entregas"
+
+<PageTitle>Entregas</PageTitle>
+
+<main>
+    <div class="container-restaurante">
+        <div id="sidebar"></div>
+        <div class="container-main-restaurante">
+            <!-- outlet -->
+            <div id="container-entregas">
+                <h2 id="titulo-entregas">Pedidos de Entregas</h2>  <br /><br />
+                <a id="btn-add-veiculo" href="NovoPedido">Novo Pedido</a>
+                <br /><br />
+                <ul id="lista-entregas">
+                    <!-- Entrega 1 -->
+                    <li class="card-entrega">
+                        <div class="info-entrega">
+                            <h3>Entrega #001</h3>
+                            <p><strong>Cliente:</strong> João Silva</p>
+                            <p><strong>Endereço:</strong> Rua das Flores, 123</p>
+                            <p><strong>Status:</strong> Entregado</p>
+                        </div>
+                        <div class="acoes-entrega">
+                            <button class="btn-deletar">X</button>
+                            <button class="btn-info">Informações</button>
+                        </div>
+                    </li>
+
+                    <!-- Entrega 2 -->
+                    <li class="card-entrega">
+                        <div class="info-entrega">
+                            <h3>Entrega #002</h3>
+                            <p><strong>Cliente:</strong> Maria Souza</p>
+                            <p><strong>Endereço:</strong> Avenida Central, 456</p>
+                            <p><strong>Status:</strong> Entregado</p>
+                        </div>
+                        <div class="acoes-entrega">
+                            <button class="btn-deletar">X</button>
+                            <button class="btn-info">Informações</button>
+                        </div>
+                    </li>
+
+                    <!-- Entrega 3 -->
+                    <li class="card-entrega">
+                        <div class="info-entrega">
+                            <h3>Entrega #003</h3>
+                            <p><strong>Cliente:</strong> Carlos Pereira</p>
+                            <p><strong>Endereço:</strong> Rua das Palmeiras, 789</p>
+                            <p><strong>Status:</strong> Cancelado</p>
+                        </div>
+                        <div class="acoes-entrega">
+                            <button class="btn-deletar">X</button>
+                            <button class="btn-info">Informações</button>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Caso não haja entregas -->
+                <!-- <p id="nenhuma-entrega">Nenhuma entrega cadastrada.</p> -->
+            </div>
+        </div>
+    </div>
+</main>
+

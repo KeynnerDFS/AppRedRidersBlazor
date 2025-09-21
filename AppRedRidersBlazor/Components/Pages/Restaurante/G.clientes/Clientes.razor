@@ -1,0 +1,65 @@
+﻿@page "/clientes"
+
+<PageTitle>Clientes</PageTitle>
+
+@* <a id="btn-add-veiculo" href="CadastrarCliente">Novo Cliente</a> *@
+
+<main>
+    <div class="container-restaurante">
+        <div id="sidebar-entregador"></div>
+        <div class="container-main-restaurante">
+            <!-- outlet -->
+            <section id="lista-corridas">
+                <h2>Todos os Cliente Cadastrados</h2>
+
+                <a id="btn-add-veiculo" href="CadastrarCliente">Novo Cliente</a>
+                <br />
+                <br />
+
+                <table id="tabela-historico">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Forma de Contato</th>
+                            <th>Endereço</th>
+                            <th>Distância</th>
+                            <th>Forma de Pagamento</th>
+                            <th>Editar</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lucas Nascimento</td>
+                            <td>Email: lucas@email.com</td>
+                            <td>Av. Brasil, 123</td>
+                            <td>2 km</td>
+                            <td>Pix</td>
+                            <td><a id="btn-add-veiculo" href="CadastroRestaurante">Editar </a></td>
+                            <td><a id="btn-add-veiculo"> Excluir </a></td>
+                        </tr>
+                        <tr>
+                            <td>Karlos Luis</td>
+                            <td>Telefone: 69 99234-7476</td>
+                            <td>Av. Paulista, 350</td>
+                            <td>5 km</td>
+                            <td>Pix</td>
+                            <td><a id="btn-add-veiculo" color="blue" href="CadastroRestaurante">Editar </a></td>
+                            <td><a id="btn-add-veiculo" color="red"> Excluir </a></td>
+                        </tr>
+                        <tr>
+                            <td>João Louis</td>
+                            <td>Telefone: 11 99090-9898</td>
+                            <td>Av. Santista, 350</td>
+                            <td>8 km</td>
+                            <td>Pix</td>
+                            <td><a id="btn-add-veiculo" href="CadastroRestaurante">Editar </a></td>
+                            <td><a id="btn-add-veiculo"> Excluir </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</main>
+

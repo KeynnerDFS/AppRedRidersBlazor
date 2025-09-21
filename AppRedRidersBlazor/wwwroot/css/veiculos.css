@@ -1,0 +1,57 @@
+
+
+#novo-veiculo-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#btn-add-veiculo {
+  background: #6123be;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#btn-add-veiculo:hover {
+  background: #502881;
+}
+
+#lista-veiculos {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.veiculo-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  width: 500px;
+}
+
+.veiculo-card:hover {
+  transform: scale(1.02);
+}
+
+.veiculo-foto {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.veiculo-info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
