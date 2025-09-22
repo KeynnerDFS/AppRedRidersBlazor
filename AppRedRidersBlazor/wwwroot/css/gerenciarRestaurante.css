@@ -15,7 +15,7 @@
 /* Lista */
 #lista-restaurantes {
   list-style: none;
-  padding: 10;
+  padding: 10px;
   display: grid;
   gap: 20px 10px;
 }
@@ -79,6 +79,7 @@
 .btn-deletar {
   background-color: #4b4bb7d5;
   color: white;
+  position: static;
 }
 
 .btn-editar {

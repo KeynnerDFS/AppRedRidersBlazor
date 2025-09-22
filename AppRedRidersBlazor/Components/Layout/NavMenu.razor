@@ -1,6 +1,10 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using AppRedRidersBlazor.Components
+
+
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-		<a class="navbar-brand"  href="">Red Riders</a>
+        <a class="navbar-brand" href="Perfil">Red Riders</a>
     </div>
 </div>
 
@@ -16,21 +20,28 @@
         </div>
 
         <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Login">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Login
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
             <NavLink class="nav-link" href="MainEntregador">
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Entregador
             </NavLink>
         </div>
 
         <div class="nav-item px-3">
+
+        </div>
+
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="MainRestaurante">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Restaurante
+                
+                <span class="bi" aria-hidden="true"></span> Restaurante
             </NavLink>
+            <button id="btn-active-lists">abrir</button>
+            
+            <ul id="menu-lists">
+                <li><a href="GerenciarRestaurante">Gerenciar Restaurante</a></li>
+                <li><a href="GerenciarRestaurante">Gerenciar Restaurante</a></li>
+                <li><a href="GerenciarRestaurante">Gerenciar Restaurante</a></li>
+                <li><a href="GerenciarRestaurante">Gerenciar Restaurante</a></li>
+            </ul>
         </div>
     </nav>
 </div>
