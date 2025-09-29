@@ -63,3 +63,79 @@ foreign key(id_cres_fk) references cadastrar_restaurante(id_cres),
 id_Calo_fk int,
  foreign key(id_calo_fk) references Cadastrar_login(id_calo)
 );
+
+-- Cadastro do entregador
+create table cadastrar_entregador(
+id_cent int primary key auto_increment,
+nome_cent varchar(300),
+cpf_cent varchar(15),
+rg_cent varchar(30),
+cnh_cent varchar(30),
+telefone_cent varchar(50),
+id_Calo_fk int,
+ foreign key(id_calo_fk) references Cadastrar_login(id_calo)
+);
+
+-- ENTREGADOR
+
+-- G.ENTREGAS
+
+--  Entregas
+create table entregas(
+id_entr int primary key auto_increment,
+nome_cliente_entr varchar(300),
+endereco_cliente_entr varchar(400),
+distancia_moradia_ccli float,
+status_entr varchar(200),
+id_cres_fk int,
+foreign key(id_cres_fk) references cadastrar_restaurante(id_cres),
+id_cent_fk int,
+ foreign key(id_cent_fk) references cadastrar_entregador(id_cent),
+ id_Calo_fk int,
+ foreign key(id_calo_fk) references Cadastrar_login(id_calo)
+); 
+
+
+-- corridas entregador
+ create table Corridas(
+ id_corr int primary key auto_increment,
+ nome_restaurante_corr varchar(300),
+ endereco_retirada_corr varchar(300),
+ local_entrega_corr varchar(300),
+ distancia_corr double,
+ status_corr varchar(100),
+ id_cres_fk int,
+ foreign key(id_cres_fk) references cadastrar_restaurante(id_cres),
+ id_cent_fk int,
+ foreign key(id_cent_fk) references cadastrar_entregador(id_cent),
+ id_Calo_fk int,
+ foreign key(id_calo_fk) references Cadastrar_login(id_calo)
+ );
+
+-- Veiculos
+ create table Veiculo(
+ id_vei int primary key auto_increment,
+ nome_dono_Vei varchar(300),
+ cpf_vei double,
+ cnh_vei float,
+ placa_vei varchar(10),
+ id_cent_fk int,
+ foreign key(id_cent_fk) references cadastrar_entregador(id_cent),
+  id_Calo_fk int,
+ foreign key(id_calo_fk) references Cadastrar_login(id_calo)
+ );
+ 
+-- Novo pedido
+create table novo_pedido(
+id_nope int primary key auto_increment,
+preco_nope float,
+endereco_entrega_nope varchar(400),
+endereco_buscar_nope float,
+quantidade_nope int,
+descricao_nope varchar(400),
+cliente_nope varchar(400),
+id_corr_fk int,
+foreign key(id_corr_fk) references corridas(id_corr),
+id_Calo_fk int,
+ foreign key(id_calo_fk) references Cadastrar_login(id_calo)
+);
