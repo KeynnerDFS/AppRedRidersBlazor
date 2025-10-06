@@ -140,3 +140,374 @@ id_Calo_fk int,
  foreign key(id_calo_fk) references Cadastrar_login(id_calo)
 );
 
+-- INSERTS
+
+ 
+-- Inserts do login entregadores
+insert into Cadastrar_login(
+id_CaLo,
+email_CaLo,
+Senha_CaLo,
+Confirmar_Senha
+)
+values (
+null,
+'DeboraAlmeida@gmail.com',
+'Debora123',
+'Debora123'
+),
+(
+null,
+'GuilhermeSilva@gmail.com',
+'Guilherme123',
+'Guilherme123'
+),
+(
+null,
+'VictorMoraes@gmail.com',
+'Victor123',
+'Victor123'
+);
+
+-- Insert do login restaurantes
+insert into Cadastrar_login(
+id_CaLo,
+email_CaLo,
+Senha_CaLo,
+Confirmar_Senha
+)
+values 
+(
+null,
+'SushiBarAli@gmail.com',
+'sushi123',
+'sushi123'
+),
+(
+null,
+'RestauranteFogoeBrasas@gmail.com',
+'fogo123',
+'Victor123'
+);
+
+-- INSERT DO Restaurante
+insert into
+cadastrar_restaurante (
+id_cres,
+nome_cres,
+telefone_cres,
+endereco_cres,
+cnpj_cres,
+id_Calo_fk)
+VALUES
+  (
+    null,
+    'Sushi-Bar Ali',
+    '(69) 14223-9784',
+    'Rua Jabuti, Bairro Castelo, Número 1212',
+	'202415',
+    null
+  ),
+  (
+  null,
+    'Restaurante Fogo e Brasa',
+    '(29) 27543-7854',
+    'Rua Natal, Bairro Novo Ano, Número 1562',
+	'264544',
+    null
+  );
+
+
+-- INSERT DO ENTREGADOR
+insert into
+cadastrar_entregador (
+id_cent,
+nome_cent,
+cpf_cent,
+rg_cent,
+cnh_cent,
+telefone_cent,
+id_Calo_fk
+  )
+VALUES
+  (
+    null,
+    'Debora Almeida Soares',
+    '230.132.132-95',
+    '123123',
+	'32111123',
+	'(69) 1233-9654',
+    null
+  ),
+  (
+   null,
+    'Guilherme Silva',
+    '625.963.425-54',
+    '123877',
+	'34444423',
+	'(65) 17883-8796',
+    null
+  ),
+  (
+    null,
+    'Victor Moraes',
+    '159.546.753-41',
+    '184533',
+	'7895415',
+	'(88) 48957-3254',
+    null
+  );
+
+
+-- INSERT CLIENTE
+insert into
+cadastrar_cliente (
+id_ccli,
+nome_ccli,
+endereco_ccli,
+distancia_moradia_ccli,
+forma_pagamento_ccli,
+forma_contato_ccli,
+id_cres_fk,
+id_Calo_fk
+)
+VALUES
+(
+null,
+'Alice Bezerra',
+'Rua Amizade, Bairro Ademais, Número 8965',
+1.5,
+'Cartão, Débito Visa, a vista',
+'Telefone (45) 34232-4523',
+null,
+null
+),
+(
+null,
+'Hector Menezes',
+'Rua PDS, Bairro Pw, Número 2023',
+1.5,
+'Dinheiro, a vista',
+'Telefone (23) 19875-1234',
+null,
+null
+);
+
+-- Insert do cardapio
+insert into
+cadastrar_cardapio (
+id_ccar,
+nome_ccar,
+descricao_ccar,
+id_cres_fk,
+id_Calo_fk
+  )
+VALUES
+(
+null, 
+'Sushis',
+'Comida Japonesa	',
+null,
+null
+),
+(
+null,
+'Churrasco',
+'Todo o tipo de churrasco',
+null,
+null
+);
+
+
+-- Insert pratos
+insert into
+cadastrar_pratos (
+id_cpra,
+nome_cpra,
+preco_cpra,
+descricao_cpra,
+id_ccar_fk,
+id_Calo_fk 
+  )
+VALUES
+(
+null,
+'Temaki',
+30.99,
+'Comida Japonesa	',
+null,
+null
+),
+(
+null,
+'Churrasco',
+35.00,
+'Comida brasileira',
+null,
+null
+);
+
+-- INSERT ENTREGAS
+insert into
+entregas (
+id_entr,
+nome_cliente_entr,
+endereco_cliente_entr,
+distancia_moradia_ccli,
+status_entr,
+id_cres_fk,
+id_cent_fk ,
+ id_Calo_fk
+
+ )
+VALUES
+  (
+    null,
+    'Alice Benedita Santos',
+    'Rua Casamentos, Bairro Viuvo, Número 3223',
+    5.3,
+	'Entregue',
+    null,
+    null,
+    null
+  ),
+  (
+    null,
+    'Bernardo Rodrigues',
+    'Rua Ano Novo, Bairro Nova Colina, Número 2020',
+    3.4,
+	'Andamento',
+    null,
+    null,
+    null
+  );
+
+-- INSERT ENTREGAS
+insert into
+entregas (
+id_entr,
+nome_cliente_entr,
+endereco_cliente_entr,
+distancia_moradia_ccli,
+status_entr,
+id_cres_fk,
+id_cent_fk ,
+ id_Calo_fk
+
+ )
+VALUES
+  (
+    null,
+    'Alice Benedita Santos',
+    'Rua Casamentos, Bairro Viuvo, Número 3223',
+    5.3,
+	'Entregue',
+    null,
+    null,
+    null
+  ),
+  (
+    null,
+    'Bernardo Rodrigues',
+    'Rua Ano Novo, Bairro Nova Colina, Número 2020',
+    3.4,
+	'Andamento',
+    null,
+    null,
+    null
+  );
+
+
+-- INSERT VEICULO
+insert into
+veiculo (
+ id_vei,
+ nome_dono_Vei,
+ cpf_vei,
+ cnh_vei,
+ placa_vei,
+ id_cent_fk,
+  id_Calo_fk
+ )
+VALUES
+  (
+    null,
+    'Ana Camargo',
+    '897.879.897-98',
+    '4848158',
+	'45d7rs',
+    null,
+    null
+  ),
+  (
+    null,
+    'Rogerio Fernandes',
+    '754.854.854-96',
+    '458854',
+	'fd45s8',
+    null,
+    null
+  );
+
+
+-- INSERT CORRIDAS
+insert into
+corridas (
+id_corr,
+ nome_restaurante_corr,
+ endereco_retirada_corr,
+ local_entrega_corr,
+ distancia_corr,
+ status_corr,
+ id_cres_fk,
+ id_cent_fk,
+ id_Calo_fk
+  )
+VALUES
+  (
+    null,
+    'Sushi-Bar Ali',
+      'Rua Jabuti, Bairro Castelo, Número 1212',
+    'rua batata, bairro castelinho, número 4543',
+	4.8,
+    'andamento',
+    null,
+    null,
+    null
+  ),
+  (
+    null,
+    'Restaurante Fogo e Brasa',
+      'Rua Natal, Bairro Novo Ano, Número 1562',
+    'rua abcd, bairro alfabeto, número 1234',
+	1.8,
+    'entregue',
+    null,
+    null,
+    null
+  );
+
+insert into
+novo_pedido(
+id_nope,
+preco_nope,
+endereco_entrega_nope,
+endereco_buscar_nope,  
+quantidade_nope,
+descricao_nope,
+cliente_nope,
+id_corr_fk,
+id_Calo_fk
+  )
+VALUES
+  (
+    null,
+    90.00,
+    'rua Vaca, bairro casas, número 4122',
+     'Rua Jabuti, Bairro Castelo, Número 1212',
+	2,
+    'Sopa de polvo',
+    'ana fernandes',
+    null,
+    null
+  );
