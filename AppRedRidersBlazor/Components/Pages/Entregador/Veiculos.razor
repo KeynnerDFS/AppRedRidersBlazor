@@ -1,5 +1,8 @@
 ﻿@page "/Veiculos"
 
+@using AppRedRidersBlazor.Models;
+@inject VeiculoDAO veiculoDAO
+
 <PageTitle>Veiculos</PageTitle>
 
 <main id="container-entregador">
@@ -16,30 +19,44 @@
             <h2>Meus Veículos</h2>
 
             <!-- Card de veículo -->
-            <div class="veiculo-card" id="veiculo-1">
-                <img src="https://i.pinimg.com/736x/89/19/b2/8919b2209dec4b0aae923fe4894b3f69.jpg"
-                     alt="Foto do veículo"
-                     class="veiculo-foto" />
-                <div class="veiculo-info">
-                    <p><strong>Dono:</strong> João Silva</p>
-                    <p><strong>CPF:</strong> 123.456.789-00</p>
-                    <p><strong>CNH:</strong> 987654321</p>
-                    <p><strong>Placa:</strong> ABC-1234</p>
-                </div>
-            </div>
+            @{
 
-            <div class="veiculo-card" id="veiculo-2">
-                <img src="https://i.pinimg.com/736x/ee/bb/5f/eebb5fdafeae1ad1f3037b2af49c45b9.jpg"
-                     alt="Foto do veículo"
-                     class="veiculo-foto" />
-                <div class="veiculo-info">
-                    <p><strong>Dono:</strong> Maria Souza</p>
-                    <p><strong>CPF:</strong> 987.654.321-00</p>
-                    <p><strong>CNH:</strong> 123456789</p>
-                    <p><strong>Placa:</strong> XYZ-9876</p>
+            
+             @foreach (var veiculo in listaVeiculos)
+             {
+                 <div class="veiculo-card" id="veiculo-1">
+                    <img src=@veiculo.rotaimg
+                         alt="Foto do veículo"
+                         class="veiculo-foto" />
+                    <div class="veiculo-info">
+
+                        <p><strong>NOME:</strong> @veiculo.nome</p>
+                        <p><strong>MARCA:</strong> @veiculo.marca</p>
+                        <p><strong>MODELO</strong> @veiculo.modelo</p>
+                        <p><strong>PLACA:</strong> @veiculo.placa</p>
+                        <p><strong>COR:</strong> @veiculo.cor</p>
+
+
+                    </div>
                 </div>
-            </div>
+             }
+            }
         </section>
     </section>
 </main>
+@code {
+    private List<Veiculo> listaVeiculos = new();
+
+
+    protected override void OnInitialized()
+    {
+        CarregarProdutos();
+    }
+
+    private void CarregarProdutos()
+    {
+        listaVeiculos = veiculoDAO.ListarTodos();
+    }
+
+}
 

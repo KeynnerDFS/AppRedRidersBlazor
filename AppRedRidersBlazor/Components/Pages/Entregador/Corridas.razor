@@ -1,4 +1,7 @@
 ﻿@page "/Corridas"
+@using AppRedRidersBlazor.Models;
+@inject PedidoDAO pedidoDAO;
+@inject RestauranteDAO restauranteDAO;
 
 <PageTitle>Corridas</PageTitle>
 
@@ -17,6 +20,7 @@
         <p id="texto">Aqui estão as entregas solicitadas pelos restaurantes:</p>
 
         <ul class="corrida-lista">
+            
             <li>
                 <h3>Pedido #101</h3>
                 <p><strong>Restaurante:</strong> Pizzaria Saborosa</p>
@@ -25,22 +29,7 @@
                 <p><strong>Distância:</strong> 2km</p>
                 <button class="btn aceitar">Aceitar Corrida</button>
             </li>
-            <li>
-                <h3>Pedido #102</h3>
-                <p><strong>Restaurante:</strong> Sushi Express</p>
-                <p><strong>Retirada:</strong> Rua Japão, 456</p>
-                <p><strong>Entrega:</strong> Rua Central, 900</p>
-                <p><strong>Distância:</strong> 2km</p>
-                <button class="btn aceitar">Aceitar Corrida</button>
-            </li>
-            <li>
-                <h3>Pedido #103</h3>
-                <p><strong>Restaurante:</strong> Burguer King</p>
-                <p><strong>Retirada:</strong> Av. Paulista, 200</p>
-                <p><strong>Entrega:</strong> Rua Verde, 45</p>
-                <p><strong>Distância:</strong> 2km</p>
-                <button class="btn aceitar">Aceitar Corrida</button>
-            </li>
+            
         </ul>
     </div>
     <section class="corrida-ativa">
@@ -63,6 +52,30 @@
     </section>
    
 </main>
+@code{
+    private List<Pedido> listaPedido = new();
 
+    private List<Restaurante> listaRestaurante = new();
+
+    
+
+    protected override void OnInitialized()
+    {
+        CarregarProdutos();
+    }
+
+    private void CarregarProdutos()
+    {
+        listaPedido = pedidoDAO.ListarTodos();
+        listaRestaurante = restauranteDAO.ListarTodos();
+    }
+
+    
+
+
+   
+   
+
+}
 
 

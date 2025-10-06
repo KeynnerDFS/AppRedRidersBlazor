@@ -1,4 +1,6 @@
 ﻿@page "/clientes"
+@using AppRedRidersBlazor.Models;
+@inject ClienteDAO clienteDAO;
 
 <PageTitle>Clientes</PageTitle>
 
@@ -20,46 +22,48 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Forma de Contato</th>
                             <th>Endereço</th>
                             <th>Distância</th>
                             <th>Forma de Pagamento</th>
+                            <th>Forma de Contado</th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Lucas Nascimento</td>
-                            <td>Email: lucas@email.com</td>
-                            <td>Av. Brasil, 123</td>
-                            <td>2 km</td>
-                            <td>Pix</td>
-                            <td><a id="btn-add-veiculo" href="CadastrarCliente">Editar </a></td>
-                            <td><a id="btn-add-veiculo"> Excluir </a></td>
-                        </tr>
-                        <tr>
-                            <td>Karlos Luis</td>
-                            <td>Telefone: 69 99234-7476</td>
-                            <td>Av. Paulista, 350</td>
-                            <td>5 km</td>
-                            <td>Pix</td>
-                            <td><a id="btn-add-veiculo" color="blue" href="CadastrarCliente">Editar </a></td>
-                            <td><a id="btn-add-veiculo" color="red"> Excluir </a></td>
-                        </tr>
-                        <tr>
-                            <td>João Louis</td>
-                            <td>Telefone: 11 99090-9898</td>
-                            <td>Av. Santista, 350</td>
-                            <td>8 km</td>
-                            <td>Pix</td>
-                            <td><a id="btn-add-veiculo" href="CadastrarCliente">Editar </a></td>
-                            <td><a id="btn-add-veiculo"> Excluir </a></td>
-                        </tr>
+                        @{
+                            @foreach (var cliente in listaCliente)
+                            {
+                                <tr>
+                                    <td>@cliente.nome</td>
+                                    <td>@cliente.endereco</td>
+                                    <td>@cliente.distanciaMoradia</td>
+                                    <td>@cliente.FormaDePagamento</td>
+                                    <td>@cliente.FormaDeContato</td>
+                                    <td><a id="btn-add-veiculo" href="CadastrarCliente">Editar </a></td>
+                                    <td><a id="btn-add-veiculo"> Excluir </a></td>
+                                </tr>
+                            }
+                        }
+                      
+                        
                     </tbody>
                 </table>
             </section>
         </div>
     </div>
 </main>
+@code{
+    private List<Cliente> listaCliente = new();
 
+
+    protected override void OnInitialized()
+    {
+        CarregarProdutos();
+    }
+
+    private void CarregarProdutos()
+    {
+        listaCliente = clienteDAO.ListarTodos();
+    }
+}
