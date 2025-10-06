@@ -1,7 +1,7 @@
 ﻿namespace AppRedRidersBlazor.Models
 {
 
-    public class pedido
+    public class Pedido
     {
         public int id { get; set; }
         public float? PrecoPelaEntrega { get; set; }

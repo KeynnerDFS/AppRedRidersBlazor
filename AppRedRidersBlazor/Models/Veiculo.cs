@@ -3,9 +3,9 @@
 	public class Veiculo
     {  
         public int Id { get; set; }
-        public modelo { get; set;}
-        public marca { get; set; }
-        public placa { get; set; }
-        public cor  { get; set; }
+        public string modelo { get; set;}
+        public string marca { get; set; }
+        public string placa { get; set; }
+
     }
 }
