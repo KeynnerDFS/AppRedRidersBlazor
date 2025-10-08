@@ -1,4 +1,8 @@
 ﻿@page "/NovoPedido"
+@rendermode InteractiveServer
+@using AppRedRidersBlazor.Models;
+@inject PedidoDAO pedidoDAO
+@inject NavigationManager Navigation
 
 <PageTitle>Novo Pedido</PageTitle>
 
@@ -6,23 +10,26 @@
     <div id="container-login">
         <form id="container-form-login">
             <h2>Fazer Pedido</h2>
+            <label for="Entrega-Preco">Nome Restaurante:</label>
+            <input @bind-value="_novoPedido!.nomeRestaurante" type="text" for="Entrega-Preco" name="Preco" placeholder="Nome..." />
+
             <label for="Entrega-Preco">Preço Pela Entrega:</label>
-            <input type="text" for="Entrega-Preco" name="Preco" placeholder="Preço..." />
+            <input @bind-value="_novoPedido!.PrecoPelaEntrega" type="text" for="Entrega-Preco" name="Preco" placeholder="Preço..." />
 
             <label for="Entrega-Entregar">Onde Entregar:</label>
-            <input type="text" for="Entrega-Entregar" name="Endereço-Entregar" placeholder="Endereço..." />
+            <input @bind-value="_novoPedido!.OndeEntregar" type="text" for="Entrega-Entregar" name="Endereço-Entregar" placeholder="Endereço..." />
 
             <label for="Entrega-Buscar">Onde Buscar:</label>
-            <input type="text" for="Entrega-Buscar" name="Endereço-Buscar" placeholder="Endereço...." />
+            <input @bind-value="_novoPedido!.OndeBuscar" type="text" for="Entrega-Buscar" name="Endereço-Buscar" placeholder="Endereço...." />
 
             <label for="Entrega-Quantidade">Quantidade:</label>
-            <input type="text" for="Entrega-Quantidade" name="Quantidade" placeholder="Quantidade de Prato..." />
+            <input @bind-value="_novoPedido!.Quantidade" type="text" for="Entrega-Quantidade" name="Quantidade" placeholder="Quantidade de Prato..." />
 
             <label for="Entrega-Descricao">Descrição:</label>
-            <input type="text" for="Entrega-Descricao" name="Descricao" placeholder="Descrever Prato..." />
+            <input @bind-value="_novoPedido!.Descricao" type="text" for="Entrega-Descricao" name="Descricao" placeholder="Descrever Prato..." />
 
             <label for="Entrega-Cliente">Cliente:</label>
-            <input type="text" for="Entrega-Cliente" name="Nome-Entrega" placeholder="Nome..." />
+            <input @bind-value="_novoPedido!.Cliente" type="text" for="Entrega-Cliente" name="Nome-Entrega" placeholder="Nome..." />
 
             <input type="submit" value="Cadastrar" />
 
@@ -31,3 +38,31 @@
     </div>
 
 </main>
+@code {
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Pedido? _novoPedido { get; set; } = new();
+
+    private void Salvar()
+    {
+
+        try
+        {
+            if (_novoPedido.nomeRestaurante is null || _novoPedido.nomeRestaurante == "")
+            {
+                throw new Exception("O campo nome é obrigatório");
+            }
+
+            pedidoDAO.Inserir(_novoPedido);
+
+            Navigation.NavigateTo("/MainRestaurante");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+        }
+
+
+    }
+}

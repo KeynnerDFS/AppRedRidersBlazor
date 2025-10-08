@@ -1,4 +1,8 @@
 ﻿@page "/CadastrarVeiculo"
+@rendermode InteractiveServer
+@using AppRedRidersBlazor.Models;
+@inject VeiculoDAO veiculoDAO;
+@inject NavigationManager Navigation;
 
 <PageTitle>Cadastrar Veiculo</PageTitle>
 
@@ -6,10 +10,12 @@
     <div id="container-login">
         <form id="container-form-login">
             <h2>Veiculo</h2>
-            <input type="text" name="Nome" placeholder="Nome" />
-            <input type="text" name="Modelo" placeholder="Modelo" />
-            <input type="text" name="Placa" placeholder="senha" />
-            <input type="text" name="Marca" placeholder="Marca" />
+            <input @bind-value="_novoVeiculo!.nome" type="text" class="form-control" name="nome" placeholder="Informe o nome " />
+            <input @bind-value="_novoVeiculo!.modelo" type="text" class="form-control" name="Modelo" placeholder="Modelo" />
+            <input @bind-value="_novoVeiculo!.placa" type="text" class="form-control" name="Placa" placeholder="senha" />
+            <input @bind-value="_novoVeiculo!.marca" type="text" class="form-control" name="Marca" placeholder="Marca" />
+            <input @bind-value="_novoVeiculo!.cor" type="text" class="form-control" name="Cor" placeholder="Cor" />
+            <input @bind-value="_novoVeiculo!.rotaimg" type="text" class="form-control" name="imagem" placeholder="Link imgem" />
             <input type="text" name="Cor" placeholder="Cor" />
 
             <input type="submit" value="Cadastrar" />
@@ -20,5 +26,31 @@
 </main>
 
 @code {
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Veiculo? _novoVeiculo { get; set; } = new();
+
+    private void Salvar()
+    {
+
+        try
+        {
+            if (_novoVeiculo.nome is null || _novoVeiculo.nome == "")
+            {
+                throw new Exception("O campo nome é obrigatório");
+            }
+
+            veiculoDAO.Inserir(_novoVeiculo);
+
+            Navigation.NavigateTo("/MainEntregador");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+        }
+
+
+    }
 
 }

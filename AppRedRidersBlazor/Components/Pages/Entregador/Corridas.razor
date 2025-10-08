@@ -1,7 +1,7 @@
 ﻿@page "/Corridas"
 @using AppRedRidersBlazor.Models;
 @inject PedidoDAO pedidoDAO;
-@inject RestauranteDAO restauranteDAO;
+
 
 <PageTitle>Corridas</PageTitle>
 
@@ -18,44 +18,35 @@
 
 
         <p id="texto">Aqui estão as entregas solicitadas pelos restaurantes:</p>
+        @foreach (var pedido in listaPedido)
+        {
+            <ul class="corrida-lista">
 
-        <ul class="corrida-lista">
-            
-            <li>
-                <h3>Pedido #101</h3>
-                <p><strong>Restaurante:</strong> Pizzaria Saborosa</p>
-                <p><strong>Retirada:</strong> Rua das Flores, 123</p>
-                <p><strong>Entrega:</strong> Av. Brasil, 500</p>
-                <p><strong>Distância:</strong> 2km</p>
-                <button class="btn aceitar">Aceitar Corrida</button>
-            </li>
-            
-        </ul>
+                <li>
+                    <h3>Pedido #101</h3>
+                    <p><strong>Nome Restaurante:</strong> @pedido.nomeRestaurante</p>
+                    <p><strong>Preço pela Entrega:</strong> @pedido.PrecoPelaEntrega</p>
+                    <p><strong>Onde Entregar:</strong> @pedido.OndeEntregar</p>
+                    <p><strong>Onde Buscar:</strong> @pedido.OndeBuscar</p>
+                    <p><strong>Distância:</strong> @pedido.distancia</p>
+                    <p><strong>Quantidade:</strong> @pedido.Quantidade</p>
+                    <p><strong>Descrição:</strong> @pedido.Descricao</p>
+                    <p><strong>Nome cliente:</strong> @pedido.Cliente</p>
+                    <p><strong>Status:</strong> @pedido.Status</p>
+                    <button class="btn aceitar">Aceitar Corrida</button>
+                </li>
+
+            </ul>
+        }
+   
     </div>
-    <section class="corrida-ativa">
-        <h2>Corrida em Andamento</h2>
-
-        <div class="corrida-card ativa">
-            <h3>Pedido #4512</h3>
-            <p><strong>Restaurante:</strong> Burguer House</p>
-            <p><strong>Endereço de Retirada:</strong> Rua das Flores, 120</p>
-            <p><strong>Cliente:</strong> Pedro Lima</p>
-            <p><strong>Endereço de Entrega:</strong> Av. Brasil, 890</p>
-            <p><strong>Distância:</strong> 2km</p>
-            <p><strong>Status:</strong> Em andamento 🚴‍♂️</p>
-
-            <div class="corrida-acao">
-                <button class="btn cancelar">Cancelar Corrida</button>
-                <button class="btn finalizar">Finalizar Entrega</button>
-            </div>
-        </div>
-    </section>
+   
    
 </main>
 @code{
     private List<Pedido> listaPedido = new();
 
-    private List<Restaurante> listaRestaurante = new();
+   
 
     
 
@@ -67,7 +58,7 @@
     private void CarregarProdutos()
     {
         listaPedido = pedidoDAO.ListarTodos();
-        listaRestaurante = restauranteDAO.ListarTodos();
+       
     }
 
     

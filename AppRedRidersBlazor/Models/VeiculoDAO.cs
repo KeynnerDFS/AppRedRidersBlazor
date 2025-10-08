@@ -15,7 +15,8 @@ namespace AppRedRidersBlazor.Models
         {
             try
             {
-                var comando = _conexao.CreateCommand("INSERT INTO produto VALUES (null,@_nome, @_modelo,@_marca,@_placa,@_cor,@_rotaimg )");
+                var comando = _conexao.CreateCommand("INSERT INTO Veiculo VALUES (null,@_nome, @_modelo,@_marca,@_placa,@_cor,@_rotaimg," +
+                    "@_idCentFk,@_idCaloFk)");
 
                 comando.Parameters.AddWithValue("@_nome", veiculo.nome);
                 comando.Parameters.AddWithValue("@_modelo", veiculo.modelo);
@@ -23,7 +24,8 @@ namespace AppRedRidersBlazor.Models
                 comando.Parameters.AddWithValue("@_placa", veiculo.placa);
                 comando.Parameters.AddWithValue("@_cor", veiculo.cor);
                 comando.Parameters.AddWithValue("@_rotaimg", veiculo.rotaimg);
-
+                comando.Parameters.AddWithValue("@_idCentFk", veiculo.idCentFk);
+                comando.Parameters.AddWithValue("@_idCaloFk", veiculo.idCaloFk);
 
 
                 comando.ExecuteNonQuery();
@@ -38,7 +40,7 @@ namespace AppRedRidersBlazor.Models
         {
             var lista = new List<Veiculo>();
 
-            var comando = _conexao.CreateCommand("SELECT * FROM produto");
+            var comando = _conexao.CreateCommand("SELECT * FROM Veiculo");
             var leitor = comando.ExecuteReader();
 
             while (leitor.Read())

@@ -1,4 +1,6 @@
 ﻿@page "/TabelaCardapio"
+@using AppRedRidersBlazor.Models;
+@inject PratosDAO pratosDAO
 
 <PageTitle>Tabela Cardápio</PageTitle>
 
@@ -28,29 +30,46 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Pizza GG</td>
-                            <td>R$ 100,00</td>
-                            <td>Até 4 sabores</td>
-                            <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
-                            <td><a id="btn-add-veiculo"> Excluir </a></td>
+                            @foreach (var pratos in listaPratos)
+                            {
+                                <td>@pratos.nome</td>
+                                <td>@pratos.preco</td>
+                                <td>@pratos.descricao</td>
+                                <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
+                                <td><a id="btn-add-veiculo"> Excluir </a></td>
+                                
+                            }
+                         
                         </tr>
-                        <tr>
-                            <td>Pizza G</td>
-                            <td>R$ 80,00</td>
-                            <td>Até 3 sabores</td>
-                            <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
-                            <td><a id="btn-add-veiculo"> Excluir </a></td>
-                        </tr>
-                        <tr>
-                            <td>Lasanha 500g</td>
-                            <td>R$ 45,00</td>
-                            <td>1 sabor (frango ou carne)</td>
-                            <td><a id="btn-add-veiculo" href="CadastroPrato">Editar </a></td>
-                            <td><a id="btn-add-veiculo"> Excluir </a></td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </section>
         </div>
     </div>
 </main>
+@code {
+    private List<Pratos> listaPratos = new();
+
+
+
+
+
+    protected override void OnInitialized()
+    {
+        CarregarProdutos();
+    }
+
+    private void CarregarProdutos()
+    {
+        listaPratos = pratosDAO.ListarTodos();
+
+    }
+
+
+
+
+
+
+
+}

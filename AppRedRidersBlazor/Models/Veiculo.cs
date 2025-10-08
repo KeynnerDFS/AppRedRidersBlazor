@@ -10,5 +10,7 @@
         public string cor {  get; set; }
 
         public string rotaimg { get; set; }
+        public string idCentFk { get; set; }
+        public string idCaloFk { get; set; }
     }
 }

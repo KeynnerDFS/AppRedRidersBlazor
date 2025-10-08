@@ -1,4 +1,9 @@
 ﻿@page "/CadastrarLogin"
+@rendermode InteractiveServer
+
+@using AppRedRidersBlazor.Models;
+@inject LoginDAO loginDAO;
+@inject NavigationManager Navigation;
 
 <PageTitle>Cadastrar</PageTitle>
 
@@ -10,7 +15,7 @@
             <input type="text" name="password" placeholder="senha" />
             <input type="text" name="confirmar password" placeholder="confirmar senha" />
 
-            <input type="submit" value="logar" />
+            <button type="submit" class="btn btn-primary">Salvar</button>
 
            
         </form>
@@ -18,5 +23,6 @@
 </main>
 
 @code {
+
 
 }

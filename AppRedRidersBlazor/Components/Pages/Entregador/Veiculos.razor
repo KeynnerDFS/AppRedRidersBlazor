@@ -19,7 +19,7 @@
             <h2>Meus Veículos</h2>
 
             <!-- Card de veículo -->
-            @{
+            
 
             
              @foreach (var veiculo in listaVeiculos)
@@ -35,12 +35,12 @@
                         <p><strong>MODELO</strong> @veiculo.modelo</p>
                         <p><strong>PLACA:</strong> @veiculo.placa</p>
                         <p><strong>COR:</strong> @veiculo.cor</p>
-
+                        <p><strong>LINK IMAGEM:</strong> @veiculo.rotaimg</p>
 
                     </div>
                 </div>
              }
-            }
+            
         </section>
     </section>
 </main>

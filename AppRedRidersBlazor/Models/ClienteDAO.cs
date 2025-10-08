@@ -15,13 +15,16 @@ namespace AppRedRidersBlazor.Models
         {
             try
             {
-                var comando = _conexao.CreateCommand("INSERT INTO produto VALUES (null, null, @_nome, @_distanciaMoradia, @_FormaDePagamento, @_endereco, @_FormaDeContado  )");
+                var comando = _conexao.CreateCommand("INSERT INTO cadastrar_cliente VALUES (null, @_nome, @_endereco,  @_distanciaMoradia, " +
+                    " @_FormaDePagamento, @_FormaDeContado  )");
 
                 comando.Parameters.AddWithValue("@_nome", cliente.nome);
+                comando.Parameters.AddWithValue("@_endereco", cliente.endereco);
                 comando.Parameters.AddWithValue("@_distanciaMoradia", cliente.distanciaMoradia);
                 comando.Parameters.AddWithValue("@_FormaDePagamento", cliente.FormaDePagamento);
-                comando.Parameters.AddWithValue("@_endereco", cliente.endereco);
                 comando.Parameters.AddWithValue("@_FormaDeContado", cliente.FormaDeContato);
+                comando.Parameters.AddWithValue("@_idCresFk", cliente.idCresFk);
+                comando.Parameters.AddWithValue("@_idCaloFk", cliente.idCaloFk);
 
 
                 comando.ExecuteNonQuery();
@@ -37,7 +40,7 @@ namespace AppRedRidersBlazor.Models
         {
             var lista = new List<Cliente>();
 
-            var comando = _conexao.CreateCommand("SELECT * FROM produto");
+            var comando = _conexao.CreateCommand("SELECT * FROM cadastrar_cliente");
             var leitor = comando.ExecuteReader();
 
             while (leitor.Read())
@@ -46,10 +49,10 @@ namespace AppRedRidersBlazor.Models
                 {
                     Id = leitor.GetInt32("id_ccli"),
                     nome = leitor.GetString("nome_ccli"),
-                    distanciaMoradia = leitor.GetString("distanciaMoradia_ccli"),
-                    FormaDePagamento = leitor.GetString("FormaDePagamento_ccli"),
                     endereco = leitor.GetString("endereco_ccli"),
-                    FormaDeContato = leitor.GetString("FormaDeContato_ccli"),
+                    distanciaMoradia = leitor.GetString("distancia_moradia_ccli "),
+                    FormaDePagamento = leitor.GetString("forma_pagamento_ccli"),
+                    FormaDeContato = leitor.GetString("forma_contato_ccli"),
                    // descricao = leitor.IsDBNull(leitor.GetOrdinal("descricao_ccar")) ? "" : leitor.GetString("descricao_ccar"),
 
                 };

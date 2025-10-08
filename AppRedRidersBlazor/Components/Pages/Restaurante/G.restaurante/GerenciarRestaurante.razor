@@ -1,4 +1,7 @@
 ﻿@page "/GerenciarRestaurante"
+@using AppRedRidersBlazor.Models;
+@inject RestauranteDAO restauranteDAO;
+
 
 <PageTitle>Gerenciar Restaurante</PageTitle>
 
@@ -17,30 +20,37 @@
  
 
     <ul id="lista-restaurantes">
-        <li class="card-restaurante">
-            <img src="https://i.pinimg.com/736x/9a/af/e3/9aafe38556e5d6a23d7749f2555c0368.jpg" alt="Restaurante A" class="img-restaurante" />
-            <div class="info-restaurante">
-                <h3>Restaurante A</h3>
-                <p>Rua Principal, 123</p>
-            </div>
-            <div class="acoes-restaurante">
-                <button class="btn-deletar">Deletar</button>
-                <button class="btn-editar" onclick="window.location.href='atualizar-restaurante.html?id=1'">Editar</button>
-            </div>
-        </li>
+        @foreach (var restaurante in listaRestaurante)
+        {
+            <li class="card-restaurante">
+                <img src="@restaurante.imagem" alt="Restaurante A" class="img-restaurante" />
+                <div class="info-restaurante">
+                    <h3>@restaurante.nome</h3>
+                    <p>@restaurante.endereco</p>
+                </div>
+                <div class="acoes-restaurante">
+                    <button class="btn-deletar">Deletar</button>
+                    <button class="btn-editar" onclick="window.location.href='atualizar-restaurante.html?id=1'">Editar</button>
+                </div>
+            </li>
+        }
 
-        <li class="card-restaurante">
-            <img src="https://i.pinimg.com/736x/80/39/ce/8039ce6cc6040de86b42df8105a1a9a9.jpg" alt="Restaurante B" class="img-restaurante" />
-            <div class="info-restaurante">
-                <h3>Restaurante B</h3>
-                <p>Avenida Central, 456</p>
-            </div>
-            <div class="acoes-restaurante">
-                <button class="btn-deletar">Deletar</button>
-                <button class="btn-editar" onclick="window.location.href='atualizar-restaurante.html?id=2'">Editar</button>
-            </div>
-        </li>
+      
     </ul>
     
 </div>
 
+@code {
+    private List<Restaurante> listaRestaurante = new();
+
+
+    protected override void OnInitialized()
+    {
+        CarregarProdutos();
+    }
+
+    private void CarregarProdutos()
+    {
+        listaRestaurante = restauranteDAO.ListarTodos();
+    }
+}

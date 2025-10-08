@@ -1,4 +1,8 @@
 ﻿@page "/CadastrarPrato"
+@rendermode InteractiveServer
+@using AppRedRidersBlazor.Models;
+@inject PratosDAO pratosDAO
+@inject NavigationManager Navigation
 
 
 <PageTitle>Novo Prato</PageTitle>
@@ -9,13 +13,13 @@
             <h2>Novo Prato</h2>
             <div class="container-form-login">
                 <label for="Prato-name">Nome:</label><br />
-                <input id="Prato-name" type="text" name="name..." required />
+                <input @bind-value="_novoPrato!.nome" type="text" id="Prato-name" name="name..." required />
                 <br />
                 <label for="Prato-Preco">Preço:</label><br />
-                <input id="Prato-Preco" type="text" name="preço..." required />
+                <input @bind-value="_novoPrato!.preco" id="Prato-Preco" type="text" name="preço..." required />
                 <br />
                 <label for="Prato-Descricao">Descrição:</label><br>
-                <textarea name="Prato-Descricao" id="Cardapio-Descricao" cols="30" rows="10"></textarea>
+                <textarea @bind="_novoPrato!.descricao" name="Prato-Descricao" id="Cardapio-Descricao" cols="30" rows="10"></textarea>
             </div>
             <input type="submit" value="Cadastrar" />
 
@@ -24,3 +28,31 @@
     </div>
 
 </main>
+@code{
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Pratos? _novoPrato { get; set; } = new();
+
+    private void Salvar()
+    {
+
+        try
+        {
+            if (_novoPrato.nome is null || _novoPrato.nome == "")
+            {
+                throw new Exception("O campo nome é obrigatório");
+            }
+
+            pratosDAO.Inserir(_novoPrato);
+
+            Navigation.NavigateTo("/MainRestaurante");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+        }
+
+
+    }
+}

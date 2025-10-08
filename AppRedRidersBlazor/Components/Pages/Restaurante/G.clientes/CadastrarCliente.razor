@@ -1,4 +1,8 @@
 ﻿@page "/CadastrarCliente"
+@rendermode InteractiveServer
+@using AppRedRidersBlazor.Models;
+@inject ClienteDAO clienteDAO
+@inject NavigationManager Navigation
 
 <PageTitle>Novo Cliente</PageTitle>
 
@@ -7,19 +11,19 @@
         <form id="container-form-login">
             <h2>Cliente</h2>
             <label for="Cliente-name">Nome:</label>
-            <input type="text" for="Cliente-name" name="Nome" placeholder="Nome..." />
+            <input @bind-value="_novoCliente!.nome" type="text" for="Cliente-name" name="Nome" placeholder="Nome..." />
          
             <label for="Cliente-Endereco">Endereço:</label>
-            <input type="text" for="Cliente-Endereco" name="Endereço" placeholder="Endereço..." />
+            <input @bind-value="_novoCliente!.endereco" .nome" type="text" for="Cliente-Endereco" name="Endereço" placeholder="Endereço..." />
 
             <label for="Cliente-Moradia">Distância Moradia:</label>
-            <input type="text" for="Cliente-Moradia" name="Distância da Moradia" placeholder="Quilometragem...." />
+            <input @bind-value="_novoCliente!.distanciaMoradia" name="Distância da Moradia" placeholder="Quilometragem...." />
 
-            <label for="Cliente-Pagamento">Distância Moradia:</label>
-            <input type="text" for="Cliente-Pagamento" name="Forma de pagamento" placeholder="Pix, Dinheiro ou Cartão.." />
+            <label for="Cliente-Pagamento">Forma de pagamento:</label>
+            <input @bind-value="_novoCliente!.FormaDePagamento" type="text" for="Cliente-Pagamento" name="Forma de pagamento" placeholder="Pix, Dinheiro ou Cartão.." />
          
-            <label for="Cliente-Contado">Distância Moradia:</label>
-            <input type="text" for="Cliente-Contato" name="Forma de Contato" placeholder="Telefone ou Email..." />
+            <label for="Cliente-Contado">Forma de contado:</label>
+            <input @bind-value="_novoCliente!.FormaDeContato" type="text" for="Cliente-Contato" name="Forma de Contato" placeholder="Telefone ou Email..." />
             
             <input type="submit" value="Cadastrar" />
 
@@ -28,3 +32,31 @@
     </div>
 
 </main>
+@code {
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Cliente? _novoCliente { get; set; } = new();
+
+    private void Salvar()
+    {
+
+        try
+        {
+            if (_novoCliente.nome is null || _novoCliente.nome == "")
+            {
+                throw new Exception("O campo nome é obrigatório");
+            }
+
+            clienteDAO.Inserir(_novoCliente);
+
+            Navigation.NavigateTo("/MainRestaurante");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+        }
+
+
+    }
+}

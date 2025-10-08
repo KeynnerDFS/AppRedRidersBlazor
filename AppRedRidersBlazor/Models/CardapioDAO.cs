@@ -15,11 +15,13 @@ namespace AppRedRidersBlazor.Models
         {
             try
             {
-                var comando = _conexao.CreateCommand("INSERT INTO produto VALUES (null, null, @_nome, @_descricao)");
+                var comando = _conexao.CreateCommand("INSERT INTO cadastrar_cardapio VALUES (null, @_nome, @_descricao,@_idCresFk,@_idCalo)");
 
                 comando.Parameters.AddWithValue("@_nome", cardapio.nome);
                 comando.Parameters.AddWithValue("@_descricao", cardapio.descricao);
-               
+                comando.Parameters.AddWithValue("@_idCresFk", cardapio.idCresFk);
+                comando.Parameters.AddWithValue("@_idCalo", cardapio.idCaloFk);
+
 
                 comando.ExecuteNonQuery();
 
@@ -33,7 +35,7 @@ namespace AppRedRidersBlazor.Models
         {
             var lista = new List<Cardapio>();
 
-            var comando = _conexao.CreateCommand("SELECT * FROM produto");
+            var comando = _conexao.CreateCommand("SELECT * FROM cadastrar_cardapio");
             var leitor = comando.ExecuteReader();
 
             while (leitor.Read())

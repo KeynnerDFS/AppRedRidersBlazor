@@ -15,11 +15,11 @@ namespace AppRedRidersBlazor.Models
         {
             try
             {
-                var comando = _conexao.CreateCommand("INSERT INTO produto VALUES (null, null, @_email, @_senha )");
+                var comando = _conexao.CreateCommand("INSERT INTO cadastrar_login VALUES (null, @_email, @_senha )");
 
                 comando.Parameters.AddWithValue("@_email", login.email);
                 comando.Parameters.AddWithValue("@_senha", login.senha);
-                
+                comando.Parameters.AddWithValue("@_confirmarSenha", login.confirmarSenha);
 
 
                 comando.ExecuteNonQuery();
@@ -35,7 +35,7 @@ namespace AppRedRidersBlazor.Models
         {
             var lista = new List<Login>();
 
-            var comando = _conexao.CreateCommand("SELECT * FROM produto");
+            var comando = _conexao.CreateCommand("SELECT * FROM cadastrar_login");
             var leitor = comando.ExecuteReader();
 
             while (leitor.Read())

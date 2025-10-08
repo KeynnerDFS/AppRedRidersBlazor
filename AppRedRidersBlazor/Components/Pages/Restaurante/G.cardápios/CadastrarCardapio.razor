@@ -1,18 +1,21 @@
 ﻿@page "/CadastrarCardapio"
-
+@rendermode InteractiveServer
+@using AppRedRidersBlazor.Models;
+@inject CardapioDAO cardapioDAO;
+@inject NavigationManager Navigation;
 
 <PageTitle>Novo Cardápio</PageTitle>
 
 <main>
     <div id="container-login">
-        <form id="container-form-login">
+        <form id="container-form-login" @onsubmit="Salvar">
             <h2>Novo Cardápio</h2>
             <div class="container-form-login">
                 <label for="Cardapio-name">Nome:</label><br />
-                <input id="Cardapio-name" type="text" name="name" required />
+                <input @bind-value="_novoCardapio!.nome" type="text"  name="nome" placeholder="Nome..." />
                 <br />
                 <label for="Cardapio-Descricao">Descrição:</label><br>
-                <textarea name="Cardapio-Descricao" id="Cardapio-Descricao" cols="30" rows="10"></textarea>
+                <textarea  @bind="_novoCardapio!.descricao" type="text"  name="Cardapio-Descricao" id="Cardapio-Descricao" cols="30" rows="10"></textarea>
             </div>
             <input type="submit" value="Cadastrar" />
 
@@ -21,3 +24,31 @@
     </div>
 
 </main>
+@code{
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Cardapio? _novoCardapio { get; set; } = new();
+
+    private void Salvar()
+    {
+
+        try
+        {
+            if (_novoCardapio.nome is null || _novoCardapio.nome == "")
+            {
+                throw new Exception("O campo nome é obrigatório");
+            }
+
+            cardapioDAO.Inserir(_novoCardapio);
+
+            Navigation.NavigateTo("/MainRestaurante");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+        }
+
+
+    }
+}

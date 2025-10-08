@@ -1,4 +1,9 @@
 ﻿@page "/CadastrarEntregador"
+@rendermode InteractiveServer
+@using AppRedRidersBlazor.Models;
+@inject EntregadorDAO entregadorDAO
+@inject NavigationManager Navigation;
+
 
 <PageTitle>Cadastrar Veiculo</PageTitle>
 
@@ -6,10 +11,11 @@
     <div id="container-login">
         <form id="container-form-login">
             <h2>Entregador</h2>
-            <input type="text" name="Nome" placeholder="Nome..." />
-            <input type="text" name="CPF" placeholder="cpf..." />
-            <input type="text" name="RG" placeholder="rg...." />
-            <input type="text" name="CNH" placeholder="Cnh.." />
+            <input @bind-value="_novoEntregador!.Nome" type="text"  name="nome" placeholder="Nome..." />
+            <input @bind-value="_novoEntregador!.cpf" type="text"  t" name="CPF" placeholder="cpf..." />
+            <input @bind-value ="_novoEntregador!.rg" type="text"  name="RG" placeholder="rg...." />
+            <input @bind-value="_novoEntregador!.cnh" type="text"  name="CNH" placeholder="Cnh.." />
+            <input @bind-value="_novoEntregador!.telefone" type="text"  name="CNH" placeholder="Cnh.." />
             <input type="text" name="Telefone" placeholder="número.." />
 
             <input type="submit" value="Cadastrar" />
@@ -22,5 +28,31 @@
 
 
 @code {
+    private string? erro = null;
+
+    [SupplyParameterFromForm]
+    private Entregador? _novoEntregador { get; set; } = new();
+
+    private void Salvar()
+    {
+
+        try
+        {
+            if (_novoEntregador.Nome is null || _novoEntregador.Nome == "")
+            {
+                throw new Exception("O campo nome é obrigatório");
+            }
+
+            entregadorDAO.Inserir(_novoEntregador);
+
+            Navigation.NavigateTo("/MainEntregador");
+        }
+        catch (Exception ex)
+        {
+            erro = ex.Message;
+        }
+
+
+    }
 
 }
