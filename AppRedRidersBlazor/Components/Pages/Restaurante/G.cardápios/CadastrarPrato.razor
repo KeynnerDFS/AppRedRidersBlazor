@@ -9,7 +9,7 @@
 
 <main>
     <div id="container-login">
-        <form id="container-form-login" @onsubmit="Salvar">
+        <EditForm Model="_novoPrato" OnValidSubmit="Salvar">
             <h2>Novo Prato</h2>
             <div class="container-form-login">
                 <label for="Prato-name">Nome:</label><br />
@@ -20,11 +20,16 @@
                 <br />
                 <label for="Prato-Descricao">Descrição:</label><br>
                 <textarea @bind="_novoPrato!.descricao" name="Prato-Descricao" id="Cardapio-Descricao" cols="30" rows="10"></textarea>
+                
             </div>
-            <input type="submit" value="Cadastrar" />
+            <button type="submit" class="btn-salvar">Cadastrar</button>
+            @if (erro is not null)
+            {
+                <p style="color:red">@erro</p>
+            }
 
 
-        </form>
+        </EditForm>
     </div>
 
 </main>

@@ -15,7 +15,7 @@
     <div id="cadastrar-restaurant-container">
         <h2 class="cadastrar-restaurant-title">Cadastrar Restaurante</h2>
 
-        <form id="cadastrar-restaurant-form"  @onsubmit="Salvar">
+        <EditForm Model="_novoRestaurante" OnValidSubmit="Salvar">
             <div class="cadastrar-restaurant-field">
                 <label for="restaurant-name">Nome:</label>
                 <input @bind="@_novoRestaurante!.nome" id="restaurant-name" type="text" name="name" required />
@@ -41,8 +41,13 @@
                 <input @bind-value="_novoRestaurante!.imagem" id="restaurant-img" type="text" name="img" required />
             </div>
 
-            <button id="cadastrar-restaurant-button" type="submit">Cadastrar</button>
-        </form>
+         <button type="submit" class="btn-salvar">Cadastrar</button>
+
+            @if (erro is not null)
+            {
+                <p style="color:red">@erro</p>
+            }
+        </EditForm>
     </div>
 </main>
 @code {

@@ -8,19 +8,25 @@
 
 <main>
     <div id="container-login">
-        <form id="container-form-login" @onsubmit="Salvar">
+        <EditForm Model="_novoCardapio" OnValidSubmit="Salvar">
             <h2>Novo Cardápio</h2>
+
             <div class="container-form-login">
                 <label for="Cardapio-name">Nome:</label><br />
-                <input @bind-value="_novoCardapio!.nome" type="text"  name="nome" placeholder="Nome..." />
+                <InputText @bind-Value="_novoCardapio!.nome" name="nome" placeholder="Nome..." class="form-control" />
                 <br />
-                <label for="Cardapio-Descricao">Descrição:</label><br>
-                <textarea  @bind="_novoCardapio!.descricao" type="text"  name="Cardapio-Descricao" id="Cardapio-Descricao" cols="30" rows="10"></textarea>
+
+                <label for="Cardapio-Descricao">Descrição:</label><br />
+                <InputTextArea @bind-Value="_novoCardapio!.descricao" name="Cardapio-Descricao" id="Cardapio-Descricao" cols="30" rows="10" class="form-control" />
             </div>
-            <input type="submit" value="Cadastrar" />
 
+            <button type="submit" class="btn-salvar">Cadastrar</button>
 
-        </form>
+            @if (erro is not null)
+            {
+                <p style="color:red">@erro</p>
+            }
+        </EditForm>
     </div>
 
 </main>
