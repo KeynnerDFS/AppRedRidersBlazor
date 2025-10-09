@@ -8,7 +8,7 @@
 
 <main>
     <div id="container-login">
-        <form id="container-form-login">
+        <form id="container-form-login" @onsubmit="Salvar">
             <h2>Veiculo</h2>
             <input @bind-value="_novoVeiculo!.nome" type="text" class="form-control" name="nome" placeholder="Informe o nome " />
             <input @bind-value="_novoVeiculo!.modelo" type="text" class="form-control" name="Modelo" placeholder="Modelo" />
