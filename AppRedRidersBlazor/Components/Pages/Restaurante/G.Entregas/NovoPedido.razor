@@ -8,7 +8,7 @@
 
 <main>
     <div id="container-login">
-        <form id="container-form-login">
+        <form id="container-form-login" @onsubmit="Salvar">
             <h2>Fazer Pedido</h2>
             <label for="Entrega-Preco">Nome Restaurante:</label>
             <input @bind-value="_novoPedido!.nomeRestaurante" type="text" for="Entrega-Preco" name="Preco" placeholder="Nome..." />
