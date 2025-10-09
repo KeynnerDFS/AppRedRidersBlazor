@@ -9,7 +9,7 @@
 
 <main>
     <div id="container-login">
-        <form id="container-form-login">
+        <form id="container-form-login" @onsubmit="Salvar">
             <h2>Entregador</h2>
             <input @bind-value="_novoEntregador!.Nome" type="text"  name="nome" placeholder="Nome..." />
             <input @bind-value="_novoEntregador!.cpf" type="text"  t" name="CPF" placeholder="cpf..." />
