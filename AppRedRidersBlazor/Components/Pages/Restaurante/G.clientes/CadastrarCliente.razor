@@ -8,7 +8,7 @@
 
 <main>
     <div id="container-login">
-        <form id="container-form-login">
+        <form id="container-form-login" @onsubmit="Salvar">
             <h2>Cliente</h2>
             <label for="Cliente-name">Nome:</label>
             <input @bind-value="_novoCliente!.nome" type="text" for="Cliente-name" name="Nome" placeholder="Nome..." />
